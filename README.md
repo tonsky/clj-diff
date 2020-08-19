@@ -25,6 +25,18 @@ although that is not currently a concern and we merely release the functionality
 that was already there.
 
 <!-- installation -->
+## Installation
+deps.edn
+
+```
+lambdaisland/clj-diff {:mvn/version "0.0.0"}
+```
+
+project.clj
+
+```
+[lambdaisland/clj-diff "0.0.0"]
+```
 <!-- /installation -->
 
 Below is the original README

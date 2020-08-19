@@ -3,8 +3,9 @@
 (ns proj (:require [lioss.main :as lioss]
                    [lioss.subshell :as subshell]))
 
-(defn compile-java [proj]
-  (subshell/spawn "javac" "src/jvm/lambdaisland/clj_diff/FastStringOps.java"))
+(defn compile-java [opts]
+  (subshell/spawn "javac" "src/jvm/lambdaisland/clj_diff/FastStringOps.java")
+  opts)
 
 (lioss/main
  {:license          :epl

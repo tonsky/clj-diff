@@ -1,9 +1,9 @@
-(ns clj-diff.miller
+(ns lambdaisland.clj-diff.miller
   "Algorithm from 'An O(NP) Sequence Comparison Algorithm' by
    Sun Wu, Udi Manber, Gene Myers and Web Miller.
 
    Please refer to the above paper while reading this code."
-  (:require [clj-diff [optimizations :as opt]]))
+  #?(:clj (:require [lambdaisland.clj-diff.optimizations :as opt])))
 
 (defn- next-x
   "Get the next farthest x value by looking at previous farthest values on the

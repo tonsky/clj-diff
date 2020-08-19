@@ -1,6 +1,6 @@
-(ns clj-diff.test.core
-  (:use [clj-diff.core] :reload)
-  (:use [clojure.test]))
+(ns lambdaisland.clj-diff.core-test
+  (:require [lambdaisland.clj-diff.core :refer :all]
+            [clojure.test :refer :all]))
 
 (deftest diff-test
   (let [t (fn [a b] (edit-distance (diff a b)))]
@@ -67,14 +67,14 @@
 
 (deftest roundtrip
   (are [a b]
-       (= b (patch a (diff a b)))
+      (= b (patch a (diff a b)))
 
-       "aba" "aca"
-       "abcabba" "cbabac"
-       "FWdRgevf43" "T5C7U3Lz5v"
-       "s2dI8h9aK1FWdRgevf43" "5hs8L9T3K2T5C7U3Lz5v"
-       "nBP8GaFHVls2dI8h9aK1FWdRgevf43" "925BCPcYhT5hs8L9T3K2T5C7U3Lz5v"
-       "aba" "aca"))
+    "aba" "aca"
+    "abcabba" "cbabac"
+    "FWdRgevf43" "T5C7U3Lz5v"
+    "s2dI8h9aK1FWdRgevf43" "5hs8L9T3K2T5C7U3Lz5v"
+    "nBP8GaFHVls2dI8h9aK1FWdRgevf43" "925BCPcYhT5hs8L9T3K2T5C7U3Lz5v"
+    "aba" "aca"))
 
 (deftest edit-distance-test
   (is (= (edit-distance (diff "aba" "aca"))
@@ -91,38 +91,38 @@
 
 (deftest levenshtein-distance-test
   (are [a b d] (= (levenshtein-distance a b) d)
-       "aba" "aba" 0
-       "aba" "ada" 1
-       "abca" "aca" 1
-       "abma" "aca" 2
-       "kitten" "sitting" 3
-       "Saturday" "Sunday" 3
-       "gumbo" "gambol" 2
-       "nBP8GaFHVls2dI8h9aK1FWdRgevf43" "925BCPcYhT5hs8L9T3K2T5C7U3Lz5v" 28
-       [1 2 4] [1 2 4 3] 1))
+    "aba" "aba" 0
+    "aba" "ada" 1
+    "abca" "aca" 1
+    "abma" "aca" 2
+    "kitten" "sitting" 3
+    "Saturday" "Sunday" 3
+    "gumbo" "gambol" 2
+    "nBP8GaFHVls2dI8h9aK1FWdRgevf43" "925BCPcYhT5hs8L9T3K2T5C7U3Lz5v" 30
+    [1 2 4] [1 2 4 3] 1))
 
 (deftest longest-common-subseq-test
   (are [a b _ d] (= (longest-common-subseq a b) d)
-       "aba" "aba"         => "aba"
-       "aba" "ada"         => "aa"
-       "abca" "aca"        => "aca"
-       "abma" "aca"        => "aa"
-       "kitten" "sitting"  => "ittn"
-       "Saturday" "Sunday" => "Suday"
-       "gumbo" "gambol"    => "gmbo"
-       "nBP8GaFHVls2dI8h9aK1FWdRgevf43" "925BCPcYhT5hs8L9T3K2T5C7U3Lz5v" =>
-       "BPs89Kv"))
+    "aba" "aba"         => "aba"
+    "aba" "ada"         => "aa"
+    "abca" "aca"        => "aca"
+    "abma" "aca"        => "aa"
+    "kitten" "sitting"  => "ittn"
+    "Saturday" "Sunday" => "Suday"
+    "gumbo" "gambol"    => "gmbo"
+    "nBP8GaFHVls2dI8h9aK1FWdRgevf43" "925BCPcYhT5hs8L9T3K2T5C7U3Lz5v" =>
+    "BPs89Kv"))
 
 (deftest longest-common-subseq-seq-test
   (are [a b _ d] (= (longest-common-subseq (seq a) (seq b)) d)
-       "kitten" "sitting"  => [\i \t \t \n]
-       "Saturday" "Sunday" => [\S \u \d \a \y]
-       "gumbo" "gambol"    => [\g \m \b \o]))
+    "kitten" "sitting"  => [\i \t \t \n]
+    "Saturday" "Sunday" => [\S \u \d \a \y]
+    "gumbo" "gambol"    => [\g \m \b \o]))
 
 (deftest longest-common-subseq-clojure-test
   (are [a b _ d] (= (longest-common-subseq (seq a) (seq b)) d)
-       [:k :i :t :t :e :n] [:s :i :t :t :i :n :g] => [:i :t :t :n]
-       [:s :a :t :u :r :d :a :y] [:s :u :n :d :a :y] => [:s :u :d :a :y]
-       [{:x 1 :y 3} {:x 2 :y 7} {:x 3 :y 2} {:x 8 :y 3}]
-       [{:x 5 :y 3} {:x 1 :y 3} {:x 3 :y 2} {:x 2 :y 8} {:x 8 :y 3}] =>
-       [{:x 1 :y 3} {:x 3 :y 2} {:x 8 :y 3}]))
+    [:k :i :t :t :e :n] [:s :i :t :t :i :n :g] => [:i :t :t :n]
+    [:s :a :t :u :r :d :a :y] [:s :u :n :d :a :y] => [:s :u :d :a :y]
+    [{:x 1 :y 3} {:x 2 :y 7} {:x 3 :y 2} {:x 8 :y 3}]
+    [{:x 5 :y 3} {:x 1 :y 3} {:x 3 :y 2} {:x 2 :y 8} {:x 8 :y 3}] =>
+    [{:x 1 :y 3} {:x 3 :y 2} {:x 8 :y 3}]))

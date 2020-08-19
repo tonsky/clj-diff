@@ -1,0 +1,4 @@
+{:paths ["src/clj" "src/jvm"]
+ :deps {}
+ :aliases {:dev {}
+           :test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.0.669"}}}}}

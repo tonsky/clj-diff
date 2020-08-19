@@ -1,7 +1,9 @@
-pom.xml
 *jar
 lib
 classes
 *.png
 files
 docs/
+*.class
+.store
+.cpcache

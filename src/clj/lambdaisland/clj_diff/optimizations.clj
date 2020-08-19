@@ -1,7 +1,7 @@
-(ns clj-diff.optimizations
+(ns lambdaisland.clj-diff.optimizations
   "String optimizations for diff algorithms.
   See http://neil.fraser.name/writing/diff/."
-  (:import clj_diff.FastStringOps))
+  (:import lambdaisland.clj_diff.FastStringOps))
 
 (defn common-prefix [^String a ^String b]
   (let [i (FastStringOps/commonPrefix a b)]

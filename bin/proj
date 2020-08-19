@@ -1,0 +1,21 @@
+#!bin/bb
+
+(ns proj (:require [lioss.main :as lioss]
+                   [lioss.subshell :as subshell]))
+
+(defn compile-java [proj]
+  (subshell/spawn "javac" "src/jvm/lambdaisland/clj_diff/FastStringOps.java"))
+
+(lioss/main
+ {:license          :epl
+  :inception-year   2010
+  :description      "Diff and patch for Clojure sequences"
+  :pre-release-hook compile-java
+  :commands         ["javac"
+                     {:description "precompile java"
+                      :command     compile-java}]})
+
+
+;; Local Variables:
+;; mode:clojure
+;; End:

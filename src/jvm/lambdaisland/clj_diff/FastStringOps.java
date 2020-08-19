@@ -1,4 +1,4 @@
-package clj_diff;
+package lambdaisland.clj_diff;
 
 /**
  * Fast string operations for clj-diff.

@@ -1,10 +1,8 @@
 # Unreleased
 
-## Added
-
 ## Fixed
 
-## Changed
+- Fix warning on ClojureScript
 
 # 1.1.55 (2020-08-19 / 77da754)
 

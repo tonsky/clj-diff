@@ -223,9 +223,10 @@
   [a b]
   (seq-diff a b))
 
-(defmethod diff :string
-  [a b]
-  (opt/diff a b seq-diff))
+#?(:clj
+   (defmethod diff :string
+     [a b]
+     (opt/diff a b seq-diff)))
 
 (defn seq-edit-dist
   [a b]

@@ -29,13 +29,13 @@ that was already there.
 deps.edn
 
 ```
-lambdaisland/clj-diff {:mvn/version "0.0.0"}
+lambdaisland/clj-diff {:mvn/version "1.1.53"}
 ```
 
 project.clj
 
 ```
-[lambdaisland/clj-diff "0.0.0"]
+[lambdaisland/clj-diff "1.1.53"]
 ```
 <!-- /installation -->
 

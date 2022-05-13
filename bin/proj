@@ -11,6 +11,7 @@
  {:license          :epl
   :inception-year   2010
   :description      "Diff and patch for Clojure sequences"
+  :group-id         "lambdaisland"
   :pre-release-hook compile-java
   :commands         ["javac"
                      {:description "precompile java"

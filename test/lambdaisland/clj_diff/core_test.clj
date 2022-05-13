@@ -22,6 +22,10 @@
               "925BCPcYhT5hs8L9T3K2T5C7U3Lz5v")
            46))
     (is (= (t "aba" "aca")
+           2))
+    (is (= (t [{}] [nil])
+           2))
+    (is (= (t [nil] [{}])
            2))))
 
 (deftest patch-test

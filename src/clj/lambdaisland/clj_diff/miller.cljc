@@ -130,7 +130,7 @@
   {:pre [(and (>= x 0) (>= y 0))]}
   (loop [x x
          y y]
-    (if (or (= x y 0) (not (= (get a x) (get b y))))
+    (if (or (= x 0) (= y 0) (not (= (get a x) (get b y))))
       x
       (recur (dec x) (dec y)))))
 

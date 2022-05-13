@@ -20,9 +20,8 @@ also taken some liberties to modernize namespace forms, and to organize this
 repo in a similar way to other lambdaisland projects (deps.edn, kaocha, common
 release tooling, etc.).
 
-Having our own fork of this might also allow us to evolve this library later on,
-although that is not currently a concern and we merely release the functionality
-that was already there.
+We have also started applying bug fixes in this fork, see the CHANGELOG for
+details.
 
 <!-- installation -->
 ## Installation

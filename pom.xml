@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>lambdaisland</groupId>
   <artifactId>clj-diff</artifactId>
-  <version>1.1.58</version>
+  <version>1.2.62</version>
   <name>clj-diff</name>
   <description>Diff and patch for Clojure sequences</description>
   <url>https://github.com/lambdaisland/clj-diff</url>
@@ -12,6 +12,9 @@
     <name>Lambda Island</name>
     <url>https://lambdaisland.com</url>
   </organization>
+  <properties>
+    <project class="build sourceEncoding">UTF-8</project>
+  </properties>
   <licenses>
     <license>
       <name>Eclipse Public License 1.0</name>
@@ -22,7 +25,7 @@
     <url>https://github.com/lambdaisland/clj-diff</url>
     <connection>scm:git:git://github.com/lambdaisland/clj-diff.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/lambdaisland/clj-diff.git</developerConnection>
-    <tag>63a67c7102bb719846975d2a3a3b152e5ff9c9fd</tag>
+    <tag>b352c9211432f683c834f513117ecd03dcb96b59</tag>
   </scm>
   <dependencies></dependencies>
   <build>
@@ -38,12 +41,21 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
+        <version>3.2.0</version>
         <configuration>
           <archive>
             <manifestEntries>
-              <git-revision>63a67c7102bb719846975d2a3a3b152e5ff9c9fd</git-revision>
+              <git-revision>b352c9211432f683c834f513117ecd03dcb96b59</git-revision>
             </manifestEntries>
           </archive>
         </configuration>
@@ -51,7 +63,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.5</version>
+        <version>1.6</version>
         <executions>
           <execution>
             <id>sign-artifacts</id>

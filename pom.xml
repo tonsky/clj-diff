@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>lambdaisland</groupId>
   <artifactId>clj-diff</artifactId>
-  <version>1.2.62</version>
+  <version>1.3.67</version>
   <name>clj-diff</name>
   <description>Diff and patch for Clojure sequences</description>
   <url>https://github.com/lambdaisland/clj-diff</url>
@@ -25,7 +25,7 @@
     <url>https://github.com/lambdaisland/clj-diff</url>
     <connection>scm:git:git://github.com/lambdaisland/clj-diff.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/lambdaisland/clj-diff.git</developerConnection>
-    <tag>b352c9211432f683c834f513117ecd03dcb96b59</tag>
+    <tag>cc62e10d71069e0e3972cde275960202c3a35b67</tag>
   </scm>
   <dependencies></dependencies>
   <build>
@@ -55,7 +55,7 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <git-revision>b352c9211432f683c834f513117ecd03dcb96b59</git-revision>
+              <git-revision>cc62e10d71069e0e3972cde275960202c3a35b67</git-revision>
             </manifestEntries>
           </archive>
         </configuration>

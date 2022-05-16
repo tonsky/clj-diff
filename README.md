@@ -28,13 +28,13 @@ details.
 deps.edn
 
 ```
-lambdaisland/clj-diff {:mvn/version "1.2.62"}
+lambdaisland/clj-diff {:mvn/version "1.3.67"}
 ```
 
 project.clj
 
 ```
-[lambdaisland/clj-diff "1.2.62"]
+[lambdaisland/clj-diff "1.3.67"]
 ```
 <!-- /installation -->
 

@@ -4,7 +4,7 @@
                    [lioss.subshell :as subshell]))
 
 (defn compile-java [opts]
-  (subshell/spawn "javac" "-target" "1.8" "src/jvm/lambdaisland/clj_diff/FastStringOps.java")
+  (subshell/spawn "javac" "-source" "1.8" "-target" "1.8" "src/jvm/lambdaisland/clj_diff/FastStringOps.java")
   opts)
 
 (lioss/main

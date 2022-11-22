@@ -2,7 +2,12 @@
 
 ## Added
 
+- Test runner
+- CI configuration
+
 ## Fixed
+
+- Babashka compatibility
 
 ## Changed
 

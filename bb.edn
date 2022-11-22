@@ -1,3 +1,20 @@
 {:deps
  {lambdaisland/open-source {:git/url "https://github.com/lambdaisland/open-source"
-                            :git/sha "8b3ef2e1fec97493ad89a39c962cca323c76ff8d"}}}
+                            :git/sha "8b3ef2e1fec97493ad89a39c962cca323c76ff8d"}}
+ :tasks
+ {:requires ([babashka.fs :as fs])
+  compile:java {:doc "Compile FastStringOps when necessary"
+                :task (when (seq (fs/modified-since (fs/file "src" "jvm" "lambdaisland" "clj_diff" "FastStringOps.class")
+                                                    ["src"]))
+                        ;; recompile FastStringOps
+                        (binding [*command-line-args* ["javac"]]
+                          (load-file "bin/proj")))}
+
+  test:clj {:doc "Run Clojure JVM tests with kaocha"
+            :depends [compile:java]
+            :task (apply clojure "-A:dev:test -M -m kaocha.runner" *command-line-args*)}
+
+  test:bb {:doc "Run babashka tests with custom runner"
+           :extra-paths ["src/clj"
+                         "test"]
+           :task (exec 'lambdaisland.clj-diff.runner/run-tests)}}}

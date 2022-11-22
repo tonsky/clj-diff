@@ -7,8 +7,7 @@
                 :task (when (seq (fs/modified-since (fs/file "src" "jvm" "lambdaisland" "clj_diff" "FastStringOps.class")
                                                     ["src"]))
                         ;; recompile FastStringOps
-                        (binding [*command-line-args* ["javac"]]
-                          (load-file "bin/proj")))}
+                        (shell "javac" "-source" "1.8" "-target" "1.8" "src/jvm/lambdaisland/clj_diff/FastStringOps.java"))}
 
   test:clj {:doc "Run Clojure JVM tests with kaocha"
             :depends [compile:java]

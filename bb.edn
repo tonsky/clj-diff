@@ -3,10 +3,10 @@
                             :git/sha "8b3ef2e1fec97493ad89a39c962cca323c76ff8d"}}
  :tasks
  {:requires ([babashka.fs :as fs])
+
   compile:java {:doc "Compile FastStringOps when necessary"
                 :task (when (seq (fs/modified-since (fs/file "src" "jvm" "lambdaisland" "clj_diff" "FastStringOps.class")
                                                     ["src"]))
-                        ;; recompile FastStringOps
                         (shell "javac" "-source" "1.8" "-target" "1.8" "src/jvm/lambdaisland/clj_diff/FastStringOps.java"))}
 
   test:clj {:doc "Run Clojure JVM tests with kaocha"

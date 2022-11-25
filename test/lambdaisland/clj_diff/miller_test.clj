@@ -1,7 +1,7 @@
 (ns lambdaisland.clj-diff.miller-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest is are]]
             [lambdaisland.clj-diff.core :as core]
-            [lambdaisland.clj-diff.miller :refer :all]))
+            [lambdaisland.clj-diff.miller :refer [diff ses]]))
 
 (def a1 (vec (cons nil "acebdabbabed")))
 (def b1 (vec (cons nil "acbdeacbed")))

@@ -1,4 +1,12 @@
-{:paths ["src/clj" "src/jvm"]
+{:paths ["src/clj" "src/jvm" "target/classes"]
  :deps {}
- :aliases {:dev {}
-           :test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.66.1034"}}}}}
+ :deps/prep-lib
+ {:ensure "target/classes"
+  :alias :build
+  :fn compile-java}
+ :aliases
+ {:dev {}
+  :test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.66.1034"}}}
+  :build
+  {:deps {io.github.clojure/tools.build {:git/tag "v0.8.5" :git/sha "9c738da"}}
+   :ns-default build}}}
